@@ -460,7 +460,8 @@ Pozdrawiam,
 
           {/* POLECANE MATERIAŁY WIDEO */}
           <div className="mt-20">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight text-center">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight flex items-center gap-3 text-left">
+              <Youtube className="text-red-600" size={32} />
               Polecane materiały wideo
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
