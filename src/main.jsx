@@ -457,6 +457,33 @@ Pozdrawiam,
 
             </div>
           </div>
+
+          {/* POLECANE MATERIAŁY WIDEO */}
+          <div className="mt-20">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight flex items-center gap-3 text-left">
+              <Youtube className="text-red-600" size={32} />
+              Polecane materiały wideo
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                "https://www.youtube.com/embed/wx2-qQUBX6o",
+                "https://www.youtube.com/embed/-NoZBitsZVw",
+                "https://www.youtube.com/embed/52E53QpSXYw"
+              ].map((url, index) => (
+                <div key={index} className="bg-white rounded-[2rem] p-4 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100">
+                    <iframe 
+                      className="w-full h-full border-0"
+                      src={url}
+                      title={`Polecane wideo ${index + 1}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </main>
       )}
 
