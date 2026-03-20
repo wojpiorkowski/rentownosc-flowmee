@@ -27,10 +27,21 @@ import {
   ChevronDown
 } from 'lucide-react';
 
+import robotFavicon from '../Robot.png';
+
 const App = () => {
   // Ustawienie tytułu dokumentu dla przeglądarki
   useEffect(() => {
     document.title = "Kalkulator rentowności wdrożenia flowMEE";
+
+    // Dynamiczna zmiana favicon
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = robotFavicon;
   }, []);
 
   // --- Stan zarządzający podstronami ---
@@ -459,7 +470,7 @@ Pozdrawiam,
           </div>
 
           {/* POLECANE MATERIAŁY WIDEO */}
-          <div className="mt-20">
+          <div className="mt-10">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight flex items-center gap-3 text-left">
               <Youtube className="text-red-600" size={32} />
               Polecane materiały wideo
