@@ -5,6 +5,7 @@ import {
   FileText, 
   Clock, 
   Hand,
+  Handshake,
   CheckCircle, 
   TrendingUp, 
   AlertCircle, 
@@ -698,19 +699,191 @@ Pozdrawiam,
         </main>
       )}
 
+      {/* WIDOK 3: PODSTRONA MODEL WSPÓŁPRACY */}
+      {activePage === 'model' && (
+        <main className="max-w-7xl mx-auto px-6 py-10 lg:py-16 min-h-[60vh]">
+          <button 
+            onClick={() => setActivePage('kalkulator')} 
+            className="mb-8 text-sm font-bold text-slate-500 hover:text-blue-600 flex items-center gap-2 transition-colors group no-print"
+          >
+            <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> Wróć do kalkulatora
+          </button>
+          
+          <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-12 tracking-tight text-center">Model <span className="text-blue-600">współpracy</span></h1>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              {/* 1. START */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 flex flex-col">
+                <h3 className="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">1</div>
+                  START (Onboarding)
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4 flex-1">
+                  <p>Współpraca rozpoczyna się od onboardingu i konfiguracji platformy flowMEE. Na tym etapie:</p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>nasi eksperci z obszaru księgowość konfigurują platformę oraz modele AI w odniesieniu do potrzeb i zasad obowiązujących u klienta,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>realizujemy integrację flowMEE z systemem ERP klienta (po stronie autoMEE, bez zaangażowania zespołu klienta),</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>przygotowujemy platformę do pracy na danych operacyjnych.</span></li>
+                  </ul>
+                </div>
+                <div className="mt-6 p-4 bg-slate-50 rounded-2xl border border-slate-100 italic text-[11px] font-bold text-slate-700 leading-relaxed">
+                  Zakończenie tego etapu oznacza pełną gotowość produkcyjną systemu.
+                </div>
+              </div>
+
+              {/* 2. OPERATE */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 flex flex-col">
+                <h3 className="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">2</div>
+                  OPERATE (Produkcja)
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4 flex-1">
+                  <p>Po uruchomieniu produkcyjnym:</p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500"></div><span>flowMEE automatyzuje bieżące procesy księgowe,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500"></div><span>obsługuje standardowe przypadki oraz identyfikuje wyjątki,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500"></div><span>użytkownicy zachowują pełną kontrolę i możliwość weryfikacji decyzji systemu.</span></li>
+                  </ul>
+                  <p className="font-bold text-slate-800 pt-2">autoMEE zapewnia:</p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>wsparcie techniczne i produktowe,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>monitoring jakości działania platformy,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>stabilne i nieprzerwane działanie usługi.</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* 3. OPTIMIZE */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 flex flex-col">
+                <h3 className="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">3</div>
+                  OPTIMIZE (Doskonalenie)
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4 flex-1">
+                  <p>W trakcie korzystania z flowMEE:</p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-emerald-500"></div><span>system jest dalej dostrajany na podstawie rzeczywistych danych operacyjnych za pomocą języka naturalnego,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-emerald-500"></div><span>optymalizowane są reguły i obsługa wyjątków,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-emerald-500"></div><span>poprawiana jest skuteczność i jakość automatyzacji w ramach istniejących procesów.</span></li>
+                  </ul>
+                </div>
+                <div className="mt-6 p-4 bg-emerald-50 rounded-2xl border border-emerald-100 italic text-[11px] font-bold text-emerald-800 leading-relaxed">
+                  Celem tego etapu jest zwiększanie efektywności pracy zespołu finansowego bez zmiany zakresu procesowego.
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* 4. Rozwój platformy */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
+                <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-6">
+                  <Zap className="text-amber-500" size={20} /> 4. Rozwój platformy
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4">
+                  <p>Rozwój flowMEE oznacza:</p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-amber-500"></div><span>ciągłość świadczenia usługi,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-amber-500"></div><span>dostosowanie platformy do zmian legislacyjnych i regulacyjnych,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-amber-500"></div><span>regularne aktualizacje funkcjonalne w ramach standardowego produktu.</span></li>
+                  </ul>
+                  <p className="font-bold text-slate-800 pt-2">
+                    Aktualizacje platformy są realizowane automatycznie i nie wymagają dodatkowych działań po stronie klienta.
+                  </p>
+                </div>
+              </div>
+
+              {/* 5. Role i odpowiedzialności */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
+                <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-6">
+                  <Users className="text-blue-500" size={20} /> 5. Role i odpowiedzialności
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4">
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <p className="font-bold text-slate-800 mb-2">autoMEE odpowiada za:</p>
+                      <ul className="space-y-2">
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>dostarczenie, utrzymanie i rozwój platformy flowMEE,</span></li>
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>konfigurację systemu i integrację z ERP,</span></li>
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500"></div><span>wsparcie techniczne i produktowe.</span></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-800 mb-2">Klient odpowiada za:</p>
+                      <ul className="space-y-2">
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>określenie zasad księgowych i procesowych,</span></li>
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>weryfikację wyjątków i decyzji wymagających osądu biznesowego,</span></li>
+                        <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400"></div><span>bieżące korzystanie z platformy.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="font-bold text-slate-800 pt-2 text-[13px] border-t border-slate-100 mt-2 pb-2">
+                    Odpowiedzialność biznesowa pozostaje po stronie klienta. flowMEE pełni rolę narzędzia wspierającego pracę zespołu finansowego.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* 6. Model rozliczenia */}
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
+                <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-3 mb-6">
+                  <Wallet className="text-green-500" size={20} /> 6. Model rozliczenia
+                </h3>
+                <div className="text-sm text-slate-600 space-y-4">
+                  <p>Współpraca obejmuje:</p>
+                  <ul className="space-y-3">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500"></div><span><strong className="text-slate-900">jednorazową opłatę startową</strong> (startup fee) - onboarding, konfiguracja i integracja,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500"></div><span><strong className="text-slate-900">miesięczny abonament</strong> za korzystanie z platformy,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-green-500"></div><span><strong className="text-slate-900">dodatkowe opłaty</strong> za usługi dodatkowe (np. niestandardowe prace lub rozszerzony support).</span></li>
+                  </ul>
+                  <p className="font-bold text-slate-800 pt-2 mt-4 border-t border-slate-100 pb-1">
+                    Aktualizacje platformy i dostosowania legislacyjne są zawarte w abonamencie.
+                  </p>
+                </div>
+              </div>
+
+              {/* Zakres poza współpracą */}
+              <div className="bg-red-50 rounded-3xl border border-red-100 shadow-sm p-8">
+                <h3 className="text-sm font-black text-red-900 uppercase tracking-widest flex items-center gap-3 mb-6">
+                  <MinusCircle className="text-red-500" size={20} /> Zakres poza współpracą
+                </h3>
+                <div className="text-sm text-red-800 space-y-4">
+                  <p className="font-medium">Model współpracy nie obejmuje:</p>
+                  <ul className="space-y-2 font-medium">
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-red-400"></div><span>zmiany lub zastępowania systemów ERP klienta,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-red-400"></div><span>migracji historycznych danych,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-red-400"></div><span>redefinicji polityki rachunkowości,</span></li>
+                    <li className="flex gap-3"><div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-red-400"></div><span>doradztwa podatkowego lub księgowego.</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      )}
+
        {/* FOOTER WSPÓLNY DLA OBU WIDOKÓW */}
       <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
           <div className="flex items-center grayscale opacity-40">
             <img src="https://automee.pl/wp-content/uploads/2025/01/Logo.png" alt="Automee Logo" className="h-6" />
           </div>
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-            {/* PRZENIESIONY MODUŁ INFORMACYJNY W FORMIE LINKU */}
-            <button 
-              onClick={() => setActivePage('info')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors normal-case tracking-normal font-bold"
-            >
-              <Info size={14} /> Co jeszcze wpływa na rentowność?
-            </button>
+            {/* PRZENIESIONY MODUŁ INFORMACYJNY W FORMIE LINKU ORAZ MODEL WSPÓŁPRACY */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button 
+                onClick={() => setActivePage('info')}
+                className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors normal-case tracking-normal font-bold"
+              >
+                <Info size={14} /> Co jeszcze wpływa na rentowność?
+              </button>
+              <button 
+                onClick={() => setActivePage('model')}
+                className="flex items-center justify-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-600 rounded-full hover:bg-indigo-100 transition-colors normal-case tracking-normal font-bold"
+              >
+                <Handshake size={14} /> Model współpracy
+              </button>
+            </div>
 
             <a 
               href={`mailto:${CONTACT_EMAIL}`} 
