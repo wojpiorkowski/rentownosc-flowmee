@@ -471,23 +471,29 @@ Pozdrawiam,
           </div>
 
           {/* POLECANE MATERIAŁY WIDEO */}
-          <div className="mt-10">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight flex items-center gap-3 text-left">
+          <div className="mt-10 w-full no-print">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-10 tracking-tight flex items-center gap-3">
               <Youtube className="text-red-600" size={32} />
               Polecane materiały wideo
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                "https://www.youtube.com/embed/wx2-qQUBX6o",
-                "https://www.youtube.com/embed/-NoZBitsZVw",
-                "https://www.youtube.com/embed/52E53QpSXYw"
-              ].map((url, index) => (
-                <div key={index} className="bg-white rounded-[2rem] p-4 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100">
+                { url: "https://www.youtube.com/embed/wx2-qQUBX6o", title: "Księgowość AI dla biur rachunkowych - Webinar" },
+                { url: "https://www.youtube.com/embed/AnWO9vvyqQ4?si=Fo8RmeFFd6yHQpi2", title: "flowMEE - platforma księgowości AI" },
+                { url: "https://www.youtube.com/embed/5wYT5wfLejM?si=-AMOOGBbEmMZ8kYA", title: "AI w księgowości - czy to rewolucja? | Przygody Przedsiębiorców" },
+                { url: "https://www.youtube.com/embed/fSwOTdZvNyc?si=Bdb2niUYg9LLmukv", title: "Optima - Konta syntetyczne/analityczne" },
+                { url: "https://www.youtube.com/embed/hDY3nmUyuVc?si=aKmj_Z1_7Wjda_a9", title: "AI przypisuje MPK" },
+                { url: "https://www.youtube.com/embed/52E53QpSXYw", title: "AI - rozrachunki - flowMEE" },
+              ].map((video, index) => (
+                <div key={index} className="bg-white rounded-[2rem] p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3">
+                  <h3 className="font-bold text-slate-800 text-sm line-clamp-2 px-1">
+                    {video.title}
+                  </h3>
+                  <div className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 mt-auto">
                     <iframe 
                       className="w-full h-full border-0"
-                      src={url}
-                      title={`Polecane wideo ${index + 1}`}
+                      src={video.url}
+                      title={video.title}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                       allowFullScreen
                     ></iframe>
